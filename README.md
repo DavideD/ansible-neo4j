@@ -1,7 +1,7 @@
 # Neo4j Ansible Role
 
-- Require: Java installed (can use one of the two java roles)
-- Require: curl installed (can use the curl role)
+- Require: Java installed (of course, Neo4j runs on Java)
+- Require: curl installed (for changing password)
 
 # Variables
 
