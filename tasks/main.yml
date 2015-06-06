@@ -128,3 +128,17 @@
   command: "curl -H \"Authorization: Basic {{neo4j_default_password.stdout}}\" -H \"Accept: application/json; charset=UTF-8\" -H \"Content-Type: application/json\" -X POST -d '{\"password\":\"{{neo4j_password}}\" }' http://localhost:{{neo4j_port}}/user/neo4j/password"
   register: neo4j_change_password
   changed_when: neo4j_change_password.stdout.find('Invalid username or password') == -1
+
+- name: generate neo4j start script
+  template: >-
+    src=neo4j_start.sh
+    dest={{neo4j_script_dir}}/neo4j_start.sh
+    mode=755
+  when: neo4j_generate_script
+
+- name: generate neo4j stop script
+  template: >-
+    src=neo4j_stop.sh
+    dest={{neo4j_script_dir}}/neo4j_stop.sh
+    mode=755
+  when: neo4j_generate_script
