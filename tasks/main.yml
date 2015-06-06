@@ -130,6 +130,8 @@
   changed_when: neo4j_change_password.stdout.find('Invalid username or password') == -1
 
 - name: generate neo4j start script
+  sudo: yes
+  sudo_user: "{{neo4j_user}}"
   template: >-
     src=neo4j_start.sh
     dest={{neo4j_script_dir}}/neo4j_start.sh
@@ -137,6 +139,8 @@
   when: neo4j_generate_script
 
 - name: generate neo4j stop script
+  sudo: yes
+  sudo_user: "{{neo4j_user}}"
   template: >-
     src=neo4j_stop.sh
     dest={{neo4j_script_dir}}/neo4j_stop.sh
