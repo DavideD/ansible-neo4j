@@ -6,6 +6,8 @@ neo4j_port: 7474
 neo4j_https_enable: "false"
 neo4j_password_file: "{{neo4j_path}}/password"
 neo4j_random_password: false
+neo4j_enable_remote_shell: false
+neo4j_remote_shell_port: 1337
 
 neo4j_generate_script: false
 neo4j_script_dir: ~/scripts
